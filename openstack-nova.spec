@@ -42,8 +42,7 @@ Source30:         openstack-nova-novncproxy.sysconfig
 Patch0001: 0001-Ensure-we-don-t-access-the-net-when-building-docs.patch
 Patch0002: 0002-remove-runtime-dep-on-python-pbr.patch
 Patch0003: 0003-Revert-Replace-oslo.sphinx-with-oslosphinx.patch
-Patch0004: 0004-notify-calling-process-we-are-ready-to-serve.patch
-Patch0005: 0005-Move-notification-point-to-a-better-place.patch
+Patch0004: 0004-Move-notification-point-to-a-better-place.patch
 
 BuildArch:        noarch
 BuildRequires:    intltool
@@ -399,7 +398,6 @@ This package contains documentation files for nova.
 %patch0002 -p1
 %patch0003 -p1
 %patch0004 -p1
-%patch0005 -p1
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -639,7 +637,6 @@ exit 0
 %dir %attr(0755, nova, root) %{_localstatedir}/log/nova
 %dir %attr(0755, nova, root) %{_localstatedir}/run/nova
 
-%{_bindir}/nova-clear-rabbit-queues
 %{_bindir}/nova-manage
 %{_bindir}/nova-rootwrap
 
